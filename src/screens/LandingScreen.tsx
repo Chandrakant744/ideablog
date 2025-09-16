@@ -29,7 +29,7 @@ const data: ListItem[] = [
         id: '4',
         title: 'Casio Digital Watch',
         description: 'Classic Digital Watch',
-        image: require('../assets/images/item4.jpeg'), 
+        image: require('../assets/images/item4.jpeg'),
     },
 ];
 

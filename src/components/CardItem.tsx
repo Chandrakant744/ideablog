@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
     },
     content: {
         padding: 16,
-        alignItems: 'flex-start', 
+        alignItems: 'flex-start',
     },
     title: {
-        fontSize: 12, 
+        fontSize: 12,
         fontWeight: 'bold',
         color: '#222',
         marginBottom: 4,
         textAlign: 'left',
     },
     description: {
-        fontSize:10 , 
+        fontSize: 10,
         color: '#555',
         textAlign: 'left',
     },

@@ -21,7 +21,7 @@ const DetailScreen: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
+        padding: 40,
         backgroundColor: '#fff',
         alignItems: 'flex-start',
     },

@@ -1,10 +1,11 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
 import CardItem from '../components/CardItem';
 import { ListItem } from '../types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/Types';
 import { useNavigation } from '@react-navigation/native';
+import { COLORS } from '../utils/constants';
 
 const data: ListItem[] = [
     {
@@ -44,6 +45,7 @@ const LandingScreen: React.FC = () => {
 
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor={COLORS.primary} barStyle="dark-content" />
             <FlatList
                 data={data}
                 keyExtractor={(item) => item.id}
@@ -66,6 +68,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fce4f9',
+        paddingTop: 15,
     },
 });
 

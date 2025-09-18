@@ -10,26 +10,26 @@ import { COLORS } from '../utils/constants';
 const data: ListItem[] = [
     {
         id: '1',
-        title: 'Casual Shirt',
-        description: 'Cotton Navy Blue',
+        title: 'Elegant Home',
+        description: 'Spacious contemporary design',
         image: require('../assets/images/item1.jpeg'),
     },
     {
         id: '2',
-        title: 'Casual Trouser',
-        description: 'Light Green Cotton',
+        title: 'Modern Home',
+        description: 'Sleek archiyecture',
         image: require('../assets/images/item2.jpeg'),
     },
     {
         id: '3',
-        title: 'Formal Shoes',
-        description: 'Ezok Leather Shoes',
+        title: 'Dream Stay',
+        description: 'Elegent living spaces',
         image: require('../assets/images/item3.jpeg'),
     },
     {
         id: '4',
-        title: 'Casio Digital Watch',
-        description: 'Classic Digital Watch',
+        title: 'Luxury Home',
+        description: 'Natural stone accents',
         image: require('../assets/images/item4.jpeg'),
     },
 ];

@@ -24,7 +24,7 @@ const { width, height } = Dimensions.get('window');
 const SplashScreen: React.FC<Props> = ({ navigation }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace('Landing');
+            navigation.replace('Dashboard');
         }, SPLASH_DURATION);
 
         return () => clearTimeout(timer);

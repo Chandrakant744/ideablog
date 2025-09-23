@@ -4,10 +4,9 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaView } from "react-native-safe-area-context"; 
+import { SafeAreaView } from "react-native-safe-area-context";
 import LandingScreen from "./LandingScreen";
 
 type DashboardTabParamList = {
@@ -19,85 +18,84 @@ type DashboardTabParamList = {
 
 const Tab = createBottomTabNavigator<DashboardTabParamList>();
 
-
 function SMCScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.screen}>
       <Text>SMC Feed</Text>
     </View>
   );
 }
+
 function ServicesScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.screen}>
       <Text>Services Feed</Text>
     </View>
   );
 }
+
 function SupportScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.screen}>
       <Text>Support Feed</Text>
     </View>
   );
 }
 
-
 function MyTabBar({ state, descriptors, navigation }: any) {
-  const { width } = Dimensions.get("window");
-  const tabWidth = width / state.routes.length;
-
   return (
     <SafeAreaView style={styles.tabBarContainer} edges={["bottom"]}>
-      {state.routes.map((route: any, index: number) => {
-        const focused = state.index === index;
+      <View style={styles.tabRow}>
+        {state.routes.map((route: any, index: number) => {
+          const focused = state.index === index;
 
-        
-        const label = (() => {
-          switch (route.name) {
-            case "SMC":
-              return "SMC";
-            case "Services":
-              return "Services";
-            case "BuildersProject":
-              return "Builders Project";
-            case "Support":
-              return "Support";
-            default:
-              return route.name;
-          }
-        })();
+          const label = (() => {
+            switch (route.name) {
+              case "SMC":
+                return "SMC";
+              case "Services":
+                return "Services";
+              case "BuildersProject":
+                return "Builders Project";
+              case "Support":
+                return "Support";
+              default:
+                return route.name;
+            }
+          })();
 
-        const onPress = () => {
-          const event = navigation.emit({
-            type: "tabPress",
-            target: route.key,
-            canPreventDefault: true,
-          });
-          if (!focused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
+          const onPress = () => {
+            const event = navigation.emit({
+              type: "tabPress",
+              target: route.key,
+              canPreventDefault: true,
+            });
+            if (!focused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          };
 
-        return (
-          <TouchableOpacity
-            key={route.key}
-            accessibilityRole="button"
-            onPress={onPress}
-            style={[styles.tabItem, { width: tabWidth }]}
-            activeOpacity={0.7}
-          >
-            <Text
-              style={[
-                styles.tabLabel,
-                focused ? styles.tabLabelFocused : styles.tabLabelUnfocused,
-              ]}
+          return (
+            <TouchableOpacity
+              key={route.key}
+              accessibilityRole="button"
+              onPress={onPress}
+              style={styles.tabItem}
+              activeOpacity={0.7}
             >
-              {label}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
+              <Text
+                numberOfLines={1}
+                style={[
+                  styles.tabLabel,
+                  focused ? styles.tabLabelFocused : styles.tabLabelUnfocused,
+                ]}
+              >
+                {label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </SafeAreaView>
   );
 }
@@ -117,29 +115,37 @@ export default function Dashboard() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   tabBarContainer: {
-    flexDirection: "row",
     backgroundColor: "#fff",
     borderTopWidth: 1,
     borderTopColor: "#ccc",
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderTopLeftRadius: 20,  
+    paddingVertical: 10,
+    borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-      overflow: "hidden", 
-  shadowColor: "#000",
-  shadowOffset: { width: 0, height: -3 },
-  shadowOpacity: 0.1,
-  shadowRadius: 4,
-  elevation: 10, 
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 10,
+  },
+  tabRow: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
   tabItem: {
-    alignItems: "center",
-    justifyContent: "center",  
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   tabLabel: {
-    textAlign: "center",
     fontWeight: "bold",
+    textAlign: "center",
   },
   tabLabelFocused: {
     color: "#000",
@@ -147,6 +153,6 @@ const styles = StyleSheet.create({
   },
   tabLabelUnfocused: {
     color: "#666",
-    fontSize: 13,
+    fontSize: 10,
   },
 });

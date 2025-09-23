@@ -124,6 +124,14 @@ const styles = StyleSheet.create({
     borderTopColor: "#ccc",
     paddingTop: 10,
     paddingBottom: 10,
+    borderTopLeftRadius: 20,  
+    borderTopRightRadius: 20,
+      overflow: "hidden", 
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: -3 },
+  shadowOpacity: 0.1,
+  shadowRadius: 4,
+  elevation: 10, 
   },
   tabItem: {
     alignItems: "center",
@@ -135,10 +143,10 @@ const styles = StyleSheet.create({
   },
   tabLabelFocused: {
     color: "#000",
-    fontSize: 14,
+    fontSize: 13,
   },
   tabLabelUnfocused: {
     color: "#666",
-    fontSize: 14,
+    fontSize: 13,
   },
 });

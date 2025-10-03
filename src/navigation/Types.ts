@@ -4,6 +4,6 @@ export type RootStackParamList = {
   Splash: undefined;
   Dashboard: undefined;
   Landing: undefined;
-  Introduction: undefined;  // If you have a separate screen for it in the stack
+  Introduction: undefined; 
   Detail: { item: ListItem };
 };

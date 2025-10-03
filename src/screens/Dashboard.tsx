@@ -10,6 +10,7 @@ import {
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LandingScreen from "./LandingScreen";
+import ServiceScreen from "./ServiceScreen";
 
 type DashboardTabParamList = {
   SMC: undefined;
@@ -18,88 +19,144 @@ type DashboardTabParamList = {
   Support: undefined;
 };
 
-const Tab = createBottomTabNavigator<DashboardTabParamList>();
-
-// ----------------- SMC SCREEN -----------------
+const Tab = createBottomTabNavigator();
 function SMCScreen() {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={styles.smcContainer}>
-        {/* Logo */}
+      <Image
+        source={require("../assets/images/logo.jpeg")}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+      <Text style={styles.title}>Introduction</Text>
+      <View style={styles.imageRow}>
+        <View style={{ flex: 1 }} />
         <Image
-          source={require("../assets/images/logo.jpeg")}
-          style={styles.logo}
-          resizeMode="contain"
+          source={require("../assets/images/doc2.jpeg")}
+          style={styles.rightImage}
+          resizeMode="cover"
         />
-
-        {/* Title */}
-        <Text style={styles.title}>Introduction</Text>
-
-        {/* Image on right with overlapping circle on left */}
-        <View style={styles.imageRow}>
-          <View style={{ flex: 1 }} />
-          <Image
-            source={require("../assets/images/doc2.jpeg")}
-            style={styles.rightImage}
-            resizeMode="cover"
-          />
-          <View style={styles.overlapCircle}>
-            <Text style={styles.circleText}>100K+</Text>
-            <Text style={styles.circleSubText}>Facilities</Text>
-          </View>
+        <View style={styles.overlapCircle}>
+          <Text style={styles.circleText}>100K+</Text>
+          <Text style={styles.circleSubText}>Facilities</Text>
         </View>
+      </View>
 
-        {/* Description */}
-        <Text style={styles.paragraph}>
-          Borcelle Medical is at the forefront of this transformation,
-          focusing on innovative solutions to enhance patient care and outcomes.
+      <Text style={styles.paragraph}>
+        Borcelle Medical is at the forefront of this transformation, focusing on
+        innovative solutions to enhance patient care and outcomes.
+      </Text>
+
+      <View style={styles.section}>
+        <View style={styles.sectionTextContainer}>
+          <Text style={styles.sectionTitle}>Healthcare Landscape</Text>
+          <Text style={styles.sectionText}>
+            The healthcare landscape is evolving rapidly, with over 100,000
+            healthcare facilities in the Borcelle.
+          </Text>
+        </View>
+        <Image
+          source={require("../assets/images/doc1.jpeg")}
+          style={styles.sectionImage}
+          resizeMode="cover"
+        />
+      </View>
+      <View style={styles.pageContainer}>
+        <Text style={styles.pageTitle}>Medical Overview</Text>
+        <Text style={styles.pageText}>
+          Founded in 2015, Borcelle Medical has served over 500,000 patients.
         </Text>
 
-        {/* Section 2: Healthcare Landscape */}
-        <View style={styles.section}>
-          <View style={styles.sectionTextContainer}>
-            <Text
-              style={styles.sectionTitle}
-              numberOfLines={1}
-              ellipsizeMode="tail"
-            >
-              Healthcare Landscape
-            </Text>
-            <Text style={styles.sectionText}>
-              The healthcare landscape is evolving rapidly, with over 100,000
-              healthcare facilities in the Borcelle.
+        <View style={styles.missionBox}>
+          <Text style={styles.missionTitle}>Our Mission</Text>
+          <Text style={styles.missionText}>
+            To provide innovative, patient-centered healthcare solutions that
+            improve lives.
+          </Text>
+        </View>
+        <View style={styles.overviewRow}>
+          <View style={styles.overviewText}>
+            <Text style={styles.sectionTitle}>Key Services</Text>
+            <Text style={styles.bullet}>• Telemedicine</Text>
+            <Text style={styles.bullet}>• Personalized treatment</Text>
+            <Text style={styles.bullet}>• Advanced diagnostic</Text>
+          </View>
+
+          <View style={{ position: "relative" }}>
+            <Image
+              source={require("../assets/images/doc3.jpeg")}
+              style={styles.overviewImage}
+            />
+            <View style={styles.overviewCircle}>
+              <Text style={styles.circleBig}>500K+</Text>
+              <Text style={styles.circleSmall}>Patients</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View style={styles.pageContainer}>
+        <Text style={styles.pageTitle}>Innovative Solutions</Text>
+        <Image
+          source={require("../assets/images/doc4.jpeg")}
+          style={styles.fullImage}
+        />
+
+        <View style={styles.cardsGrid}>
+          <View style={styles.solutionCardGrid}>
+            <Text style={styles.solutionTitle}>Precision Medicine</Text>
+            <Text style={styles.solutionText}>
+              Leveraging genetic data and advanced analytics to tailor
+              treatments.
             </Text>
           </View>
 
-          <Image
-            source={require("../assets/images/doc1.jpeg")}
-            style={styles.sectionImage}
-            resizeMode="cover"
-          />
+          <View style={styles.solutionCardGrid}>
+            <Text style={styles.solutionTitle}>Telemedicine</Text>
+            <Text style={styles.solutionText}>
+              Serving 50,000+ patients annually through virtual consultations.
+            </Text>
+          </View>
+
+          <View style={styles.solutionCardGrid}>
+            <Text style={styles.solutionTitle}>AI Diagnostics</Text>
+            <Text style={styles.solutionText}>
+              Implementing AI-driven tools that enhance diagnostic accuracy by
+              30%.
+            </Text>
+          </View>
+
+          <View style={styles.solutionCardGrid}>
+            <Text style={styles.solutionTitle}>Wearable Technology</Text>
+            <Text style={styles.solutionText}>
+              Partnering with tech companies to monitor patient health in
+              real-time.
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.joinUsContainer}>
+        <Text style={styles.joinTitle}>
+          Join us in transforming healthcare!
+        </Text>
+
+        <Image
+          source={require("../assets/images/doc2.jpeg")} 
+          style={styles.joinImage}
+          resizeMode="cover"
+        />
+
+        <View style={styles.contactContainer}>
+          <Text style={styles.contactText}>📞 +123-456-7890</Text>
+          <Text style={styles.contactText}>📧 contact@smcprojects.in</Text>
+          <Text style={styles.contactText}>🌐 www.smcppl.com</Text>
         </View>
       </View>
     </ScrollView>
   );
 }
-
-// ----------------- OTHER SCREENS -----------------
-function ServicesScreen() {
-  return (
-    <View style={styles.screen}>
-      <Text>Services Feed</Text>
-    </View>
-  );
-}
-
 function SupportScreen() {
-  return (
-    <View style={styles.screen}>
-      <Text>Support Feed</Text>
-    </View>
-  );
+  return <Text>Support Feed</Text>;
 }
-
-// ----------------- CUSTOM TAB BAR -----------------
 function MyTabBar({ state, descriptors, navigation }: any) {
   return (
     <SafeAreaView style={styles.tabBarContainer} edges={["bottom"]}>
@@ -136,7 +193,6 @@ function MyTabBar({ state, descriptors, navigation }: any) {
           return (
             <TouchableOpacity
               key={route.key}
-              accessibilityRole="button"
               onPress={onPress}
               style={styles.tabItem}
               activeOpacity={0.7}
@@ -157,8 +213,6 @@ function MyTabBar({ state, descriptors, navigation }: any) {
     </SafeAreaView>
   );
 }
-
-// ----------------- MAIN DASHBOARD -----------------
 export default function Dashboard() {
   return (
     <Tab.Navigator
@@ -166,14 +220,12 @@ export default function Dashboard() {
       tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tab.Screen name="SMC" component={SMCScreen} />
-      <Tab.Screen name="Services" component={ServicesScreen} />
+      <Tab.Screen name="Services" component={ServiceScreen} />
       <Tab.Screen name="BuildersProject" component={LandingScreen} />
       <Tab.Screen name="Support" component={SupportScreen} />
     </Tab.Navigator>
   );
 }
-
-// ----------------- STYLES -----------------
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -189,19 +241,19 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     alignSelf: "flex-start",
-    marginBottom: 15, // ↓ space below logo
-    marginTop: 10,    // ↑ space above logo
+    marginBottom: 15,
+    marginTop: 30,
+    marginLeft:20
   },
   title: {
     fontSize: 40,
     fontWeight: "700",
     color: "#333",
-    marginBottom: 25, // ↓ more space below title
-    marginTop: 5,
+    marginBottom: 25,
+    marginTop: 10,
     textAlign: "left",
-    marginLeft: 15,
+    marginLeft: 30,
   },
-
   imageRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -210,10 +262,10 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   rightImage: {
-    width: 260,
+    width: 280,
     height: 160,
     borderRadius: 16,
-    marginRight: 10,
+    marginRight: 30,
   },
   overlapCircle: {
     position: "absolute",
@@ -245,16 +297,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: -4,
   },
-
   paragraph: {
     fontSize: 14,
     color: "#444",
     textAlign: "left",
     lineHeight: 24,
-    marginBottom: 30, // ↑ space before next section
-    marginLeft: 15,
+    marginBottom: 30,
+    marginLeft: 20,
   },
-
   section: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -265,26 +315,144 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "700",
     color: "#333",
     marginBottom: 8,
-    flexWrap: "nowrap",
-    marginLeft: 15,
-    marginTop: 10, // ↓ spacing above Healthcare Landscape
+    marginLeft: 26,
+    marginTop: 20,
   },
   sectionText: {
     fontSize: 14,
     color: "#333",
     textAlign: "left",
     lineHeight: 20,
-    marginLeft: 15,
+    marginLeft: 26,
   },
   sectionImage: {
     width: 100,
     height: 150,
     borderRadius: 12,
-    resizeMode: "cover",
+    marginRight:40
+  },
+  pageContainer: {
+    padding: 20,
+    backgroundColor: "fff",
+    marginBottom: 25,
+  },
+  pageTitle: {
+    fontSize: 28,
+    fontWeight: "700",
+    marginBottom: 15,
+    color: "#222",
+  },
+  fullImage: {
+    width: "100%",
+    height: 180,
+    borderRadius: 12,
+    marginBottom: 15,
+  },
+  pageText: {
+    fontSize: 15,
+    color: "#333",
+    lineHeight: 22,
+  },
+  missionBox: {
+    backgroundColor: "#FFA500",
+    padding: 15,
+    borderRadius: 12,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  missionTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#fff",
+    marginBottom: 5,
+  },
+  missionText: {
+    fontSize: 14,
+    color: "#fff",
+    lineHeight: 20,
+  },
+  circleCard: {
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  circleBig: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#fff",
+  },
+  circleSmall: {
+    fontSize: 14,
+    color: "#fff",
+  },
+  bullet: {
+    fontSize: 14,
+    color: "#333",
+    marginVertical: 3,
+    marginLeft: 15,
+  },
+  overviewRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  overviewText: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  overviewImage: {
+    width: 140,
+    height: 160,
+    borderRadius: 12,
+    marginTop:20
+  },
+  overviewCircle: {
+    position: "absolute",
+    left: -50,
+    bottom: 110,
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    backgroundColor: "#2D9CDB",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 2,
+    elevation: 6,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 5,
+  },
+  cardsGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginTop: 15,
+  },
+  solutionCardGrid: {
+    width: "48%",
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 12,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  solutionTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    marginBottom: 6,
+  },
+  solutionText: {
+    fontSize: 14,
+    color: "#333",
+    lineHeight: 20,
   },
   tabBarContainer: {
     backgroundColor: "#fff",
@@ -320,5 +488,31 @@ const styles = StyleSheet.create({
   tabLabelUnfocused: {
     color: "#666",
     fontSize: 10,
+  },
+  joinUsContainer: {
+    padding: 20,
+    alignItems: "center",
+    marginBottom: 40,
+  },
+  joinTitle: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#222",
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  joinImage: {
+    width: "100%",
+    height: 220,
+    borderRadius: 16,
+    marginBottom: 20,
+  },
+  contactContainer: {
+    alignItems: "center",
+  },
+  contactText: {
+    fontSize: 15,
+    color: "#333",
+    marginVertical: 4,
   },
 });

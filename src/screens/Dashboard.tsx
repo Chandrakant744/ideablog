@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  Alert,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -20,6 +21,7 @@ type DashboardTabParamList = {
 };
 
 const Tab = createBottomTabNavigator();
+
 function SMCScreen() {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -28,11 +30,11 @@ function SMCScreen() {
         style={styles.logo}
         resizeMode="contain"
       />
-      <Text style={styles.title}>Introduction</Text>
+      <Text style={styles.title}>Your Dream Home</Text>
       <View style={styles.imageRow}>
         <View style={{ flex: 1 }} />
         <Image
-          source={require("../assets/images/doc2.jpeg")}
+          source={require("../assets/images/b1.jpeg")}
           style={styles.rightImage}
           resizeMode="cover"
         />
@@ -43,24 +45,39 @@ function SMCScreen() {
       </View>
 
       <Text style={styles.paragraph}>
-        Borcelle Medical is at the forefront of this transformation, focusing on
-        innovative solutions to enhance patient care and outcomes.
+        𝗥𝘂𝘁𝘂𝗷𝗮 𝗘𝗻𝗰𝗹𝗮𝘃𝗲 at Akurdi offers 1&2 BHK flats
       </Text>
 
       <View style={styles.section}>
         <View style={styles.sectionTextContainer}>
-          <Text style={styles.sectionTitle}>Healthcare Landscape</Text>
+          <Text style={styles.sectionTitle}>Amenities</Text>
           <Text style={styles.sectionText}>
-            The healthcare landscape is evolving rapidly, with over 100,000
-            healthcare facilities in the Borcelle.
+            1. Yoga & Meditation space{"\n"}
+            2. Terrace landscapes garden & stage{"\n"}
+            3. Open GYM{"\n"}
+            4. Jogging track{"\n"}
+            5. Power Backup for left and common area{"\n"}
+            6. Rain water harvesting{"\n"}
+            7. Solar Electricity
           </Text>
         </View>
-        <Image
-          source={require("../assets/images/doc1.jpeg")}
-          style={styles.sectionImage}
-          resizeMode="cover"
-        />
+        <View>
+          <Image
+            source={require("../assets/images/b2.jpeg")}
+            style={styles.sectionImage}
+            resizeMode="cover"
+          />
+
+          {/* ✅ Book Now Button */}
+          <TouchableOpacity
+            style={styles.bookNowButton}
+            onPress={() => Alert.alert("Booking", "Booking details will open here.")}
+          >
+            <Text style={styles.bookNowText}>Book Now</Text>
+          </TouchableOpacity>
+        </View>
       </View>
+
       <View style={styles.pageContainer}>
         <Text style={styles.pageTitle}>Medical Overview</Text>
         <Text style={styles.pageText}>
@@ -94,6 +111,7 @@ function SMCScreen() {
           </View>
         </View>
       </View>
+
       <View style={styles.pageContainer}>
         <Text style={styles.pageTitle}>Innovative Solutions</Text>
         <Image
@@ -134,13 +152,14 @@ function SMCScreen() {
           </View>
         </View>
       </View>
+
       <View style={styles.joinUsContainer}>
         <Text style={styles.joinTitle}>
           Join us in transforming healthcare!
         </Text>
 
         <Image
-          source={require("../assets/images/doc2.jpeg")} 
+          source={require("../assets/images/doc2.jpeg")}
           style={styles.joinImage}
           resizeMode="cover"
         />
@@ -154,9 +173,11 @@ function SMCScreen() {
     </ScrollView>
   );
 }
+
 function SupportScreen() {
   return <Text>Support Feed</Text>;
 }
+
 function MyTabBar({ state, descriptors, navigation }: any) {
   return (
     <SafeAreaView style={styles.tabBarContainer} edges={["bottom"]}>
@@ -213,6 +234,7 @@ function MyTabBar({ state, descriptors, navigation }: any) {
     </SafeAreaView>
   );
 }
+
 export default function Dashboard() {
   return (
     <Tab.Navigator
@@ -226,6 +248,7 @@ export default function Dashboard() {
     </Tab.Navigator>
   );
 }
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -238,15 +261,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     alignSelf: "flex-start",
     marginBottom: 15,
     marginTop: 30,
-    marginLeft:20
+    marginLeft: 20,
   },
   title: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: "700",
     color: "#333",
     marginBottom: 25,
@@ -258,7 +281,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    marginBottom: 40,
+    marginBottom: 20,
     position: "relative",
   },
   rightImage: {
@@ -298,12 +321,12 @@ const styles = StyleSheet.create({
     marginTop: -4,
   },
   paragraph: {
-    fontSize: 14,
+    fontSize: 16,
     color: "#444",
     textAlign: "left",
     lineHeight: 24,
-    marginBottom: 30,
-    marginLeft: 20,
+    marginBottom: 20,
+    marginLeft: 18,
   },
   section: {
     flexDirection: "row",
@@ -318,9 +341,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "700",
     color: "#333",
-    marginBottom: 8,
-    marginLeft: 26,
-    marginTop: 20,
+    marginBottom: 7,
+    marginLeft: 30,
+    marginTop: 2,
   },
   sectionText: {
     fontSize: 14,
@@ -330,10 +353,25 @@ const styles = StyleSheet.create({
     marginLeft: 26,
   },
   sectionImage: {
-    width: 100,
-    height: 150,
+    width: 120,
+    height: 200,
     borderRadius: 12,
-    marginRight:40
+    marginRight: 40,
+    marginTop: 25,
+  },
+  bookNowButton: {
+    backgroundColor: "#2D9CDB",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignSelf: "flex-end",
+    marginTop: 18,
+    marginRight: 40,
+  },
+  bookNowText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 18,
   },
   pageContainer: {
     padding: 20,
@@ -407,7 +445,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 160,
     borderRadius: 12,
-    marginTop:20
+    marginTop: 20,
   },
   overviewCircle: {
     position: "absolute",
